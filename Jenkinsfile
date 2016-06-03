@@ -54,8 +54,10 @@ node {
 stage 'docker build'
   
   docker.withRegistry('', 'f6ab1d37-c2cf-4636-80b9-7745dffd4695') {
-        docker.build('node_salesorder').push('latest')
+        def pcImg = docker.build('snyamars007/node_salesorder')
+        pcImg.push();
   }
+  
 
  
  stage 'notifyKubernetes'
