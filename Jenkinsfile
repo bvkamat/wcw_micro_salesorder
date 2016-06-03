@@ -40,7 +40,7 @@ node {
   echo "${tag_value}"
   
   
-  def artifactLocation ="/var/lib/jenkins/workspace/${env.JOB_NAME}/<service name>"
+  def artifactLocation ="/var/lib/jenkins/workspace/${env.JOB_NAME}/wcw_micro_salesorder"
   
   stage 'Git Tagging'
   
@@ -48,13 +48,13 @@ node {
   {
       //sh("git tag -a ${env.BUILD_NUMBER}  -m 'Jenkins'")
       sh("git tag -a ${tag_value}  -m 'Jenkins'")
-      sh('git push https://"${GIT_USERNAME}":"${GIT_PASSWORD}"@github.com/snyamars/<spring-petclinic.git> --tags')
+      sh('git push https://"${GIT_USERNAME}":"${GIT_PASSWORD}"@github.com/snyamars/wcw_micro_salesorder.git --tags')
   }
   
 stage 'docker build'
   
   docker.withRegistry('https://hub.docker.com/r/snyamars007', 'f6ab1d37-c2cf-4636-80b9-7745dffd4695') {
-        docker.build('<Service Name>').push('latest')
+        docker.build('node_salesorder').push('latest')
   }
 
  
