@@ -53,12 +53,12 @@ node {
   
 stage 'docker build'
   
-  docker.withRegistry('https://hub.docker.com/r/snyamars007', 'f6ab1d37-c2cf-4636-80b9-7745dffd4695') {
+  docker.withRegistry('', 'f6ab1d37-c2cf-4636-80b9-7745dffd4695') {
         docker.build('node_salesorder').push('latest')
   }
 
  
  stage 'notifyKubernetes'
-   sh  "curl -H 'Content-Type: application/json' -X POST -d '{'id': 'wcw-sales','application': 'Warehouse Application','accesspoint': 'http://172.31.0.233:8080','containers': [{'name': 'mongod', 'replicas': 1, 'cpu': 1100, 'memory': '170M', 'port': 30072},        {'name': 'nodejs', 'replicas': 1, 'cpu': 1100, 'memory': '500M', 'port': 30065, 'image': 'snyamars007/node_salesorder'} ]}' http://54.174.70.178:3306/step3"
+  // sh  "curl -H 'Content-Type: application/json' -X POST -d '{'id': 'wcw-sales','application': 'Warehouse Application','accesspoint': 'http://172.31.0.233:8080','containers': [{'name': 'mongod', 'replicas': 1, 'cpu': 1100, 'memory': '170M', 'port': 30072},        {'name': 'nodejs', 'replicas': 1, 'cpu': 1100, 'memory': '500M', 'port': 30065, 'image': 'snyamars007/node_salesorder'} ]}' http://54.174.70.178:3306/step3"
  
 }//end of node
