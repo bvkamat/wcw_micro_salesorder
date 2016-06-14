@@ -47,15 +47,15 @@ node {
   withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '146ff225-d9c5-4466-9ae0-3ff4c646ff30', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) 
   {
       //sh("git tag -a ${env.BUILD_NUMBER}  -m 'Jenkins'")
-      sh("git tag -a wcw_micro_salesorder_${tag_value}_${env.BUILD_NUMBER}  -m 'Jenkins'")
-      sh('git push https://"${GIT_USERNAME}":"${GIT_PASSWORD}"@github.com/snyamars/wcw_micro_salesorder.git --tags')
+      //sh("git tag -a wcw_micro_salesorder_${tag_value}_${env.BUILD_NUMBER}  -m 'Jenkins'")
+      //sh('git push https://"${GIT_USERNAME}":"${GIT_PASSWORD}"@github.com/snyamars/wcw_micro_salesorder.git --tags')
   }
   
 stage 'docker build'
   
   docker.withRegistry('', 'f6ab1d37-c2cf-4636-80b9-7745dffd4695') {
-        def pcImg = docker.build('snyamars007/node_salesorder')
-        pcImg.push();
+       // def pcImg = docker.build('snyamars007/node_salesorder')
+       // pcImg.push();
   }
   
 
@@ -65,5 +65,6 @@ stage 'docker build'
    //sh ('curl -H Content-Type: application/json -X POST -d "{  "id": "wcw-sales",     "application": "Warehouse-Application",     "accesspoint": "http://172.31.0.233:8080",     "containers": [         {"name": "mongo", "replicas": 1, "cpu": 1100, "memory": "170M", "port": 30072},         {"name": "node", "replicas": 1, "cpu": 1100, "memory": "500M", "port": 30065, "image": "snyamars007/node_salesorder"}  ] }" http://54.237.219.53:3306/step3')
    //sh ('curl -H Content-Type: application/json -X POST -d '{  "id": "wcw-sales",     "application": "Warehouse-Application",     "accesspoint": "http://172.31.0.233:8080",     "containers": [         {"name": "mongo", "replicas": 1, "cpu": 1100, "memory": "170M", "port": 30072},         {"name": "node", "replicas": 1, "cpu": 1100, "memory": "500M", "port": 30065, "image": "snyamars007/node_salesorder"}  ] }' http://54.237.219.53:3306/step3')
    //sh "curl -H Content-Type: application/json -X POST -d "'{  "id": "wcw-sales",     "application": "Warehouse-Application",     "accesspoint": "http://172.31.0.233:8080",     "containers": [         {"name": "mongo", "replicas": 1, "cpu": 1100, "memory": "170M", "port": 30072},         {"name": "node", "replicas": 1, "cpu": 1100, "memory": "500M", "port": 30065, "image": "snyamars007/node_salesorder"}  ] }'" http://54.237.219.53:3306/step3"
-   sh "curl -H 'Content-Type: application/json' -X POST -d "'{  "id": "wcw-sales",     "application": "Warehouse-Application",     "accesspoint": "http://172.31.0.233:8080",     "containers": [         {"name": "mongo", "replicas": 1, "cpu": 1100, "memory": "170M", "port": 30072},         {"name": "node", "replicas": 1, "cpu": 1100, "memory": "500M", "port": 30065, "image": "snyamars007/node_salesorder"}  ] }'" http://54.237.219.53:3306/step3"
+   //sh "curl -H 'Content-Type: application/json' -X POST -d "'{  "id": "wcw-sales",     "application": "Warehouse-Application",     "accesspoint": "http://172.31.0.233:8080",     "containers": [         {"name": "mongo", "replicas": 1, "cpu": 1100, "memory": "170M", "port": 30072},         {"name": "node", "replicas": 1, "cpu": 1100, "memory": "500M", "port": 30065, "image": "snyamars007/node_salesorder"}  ] }'" http://54.237.219.53:3306/step3"
+   sh "curl -H 'Content-Type: application/json' -X POST -d "{  "id": "wcw-sales",     "application": "Warehouse-Application",     "accesspoint": "http://172.31.0.233:8080",     "containers": [         {"name": "mongo", "replicas": 1, "cpu": 1100, "memory": "170M", "port": 30072},         {"name": "node", "replicas": 1, "cpu": 1100, "memory": "500M", "port": 30065, "image": "snyamars007/node_salesorder"}  ] }" http://54.237.219.53:3306/step3"
 }//end of node
