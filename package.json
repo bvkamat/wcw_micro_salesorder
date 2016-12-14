@@ -1,0 +1,32 @@
+{
+  "name": "wcw_micro_salesorder",
+  "version": "1.0.0",
+  "description": "Aviva Demo5",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "config": "^1.20.1",
+    "cookie-parser": "^1.4.0",
+    "envar": "^2.0.0",
+    "express": "^4.13.3",
+    "express-favicon": "^1.0.1",
+    "express-myconnection": "^1.0.4",
+    "express-session": "^1.12.1",
+    "log4js": "^0.6.21",
+    "method-override": "^2.3.5",
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snyamars/wcw_micro_salesorder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/snyamars/wcw_micro_salesorder/issues"
+  },
+  "homepage": "https://github.com/snyamars/wcw_micro_salesorder#readme"
+}
