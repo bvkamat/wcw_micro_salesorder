@@ -48,7 +48,7 @@ node {
   {
       //sh("git tag -a ${env.BUILD_NUMBER}  -m 'Jenkins'")
      // sh("git tag -a wcw_micro_salesorder_${tag_value}_${env.BUILD_NUMBER}  -m 'Jenkins'")
-      sh("git tag -a wcw_micro_salesorder_${env.BUILD_NUMBER}  -m 'Jenkins'")
+      //sh("git tag -a wcw_micro_salesorder_${env.BUILD_NUMBER}  -m 'Jenkins'")
       sh('git push https://"${GIT_USERNAME}":"${GIT_PASSWORD}"@github.com/snyamars/wcw_micro_salesorder.git --tags')
   }
   
@@ -69,5 +69,5 @@ stage 'docker build'
    //sh "curl -H 'Content-Type: application/json' -X POST -d "'{  "id": "wcw-sales",     "application": "Warehouse-Application",     "accesspoint": "http://172.31.0.233:8080",     "containers": [         {"name": "mongo", "replicas": 1, "cpu": 1100, "memory": "170M", "port": 30072},         {"name": "node", "replicas": 1, "cpu": 1100, "memory": "500M", "port": 30065, "image": "snyamars007/node_salesorder"}  ] }'" http://54.237.219.53:3306/step3"
    //sh "curl -H 'Content-Type: application/json' -X POST -d "{  "id": "wcw-sales",     "application": "Warehouse-Application",     "accesspoint": "http://172.31.0.233:8080",     "containers": [         {"name": "mongo", "replicas": 1, "cpu": 1100, "memory": "170M", "port": 30072},         {"name": "node", "replicas": 1, "cpu": 1100, "memory": "500M", "port": 30065, "image": "snyamars007/node_salesorder"}  ] }" http://54.237.219.53:3306/step3"
    //sh ('curl -H "Content-Type: application/json" -X POST -d '{  "id": "wcw-sales",     "application": "Warehouse-Application",     "accesspoint": "http://172.31.0.233:8080",     "containers": [         {"name": "mongo", "replicas": 1, "cpu": 1100, "memory": "170M", "port": 30072},         {"name": "node", "replicas": 1, "cpu": 1100, "memory": "500M", "port": 30065, "image": "snyamars007/node_salesorder"}  ] }' http://54.237.219.53:3306/step3')
-   sh 'curl -vvv -X POST -d @salesFile -H "Content-Type: application/json" http://52.2.95.61:3306/step3'
+   //sh 'curl -vvv -X POST -d @salesFile -H "Content-Type: application/json" http://52.2.95.61:3306/step3'
 }//end of node
