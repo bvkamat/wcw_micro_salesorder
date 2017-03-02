@@ -33,8 +33,8 @@ node {
   def word1 = "warfile=${fileName}"
   echo "${word1}"
   
-  def targetIPAddress = "${targetIPAddress}"
-  echo "${targetIPAddress}"
+ // def targetIPAddress = "${targetIPAddress}"
+// echo "${targetIPAddress}"
   
   def tag_value = "${tag_value}"
   echo "${tag_value}"
